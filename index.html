@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TotalCam — Ver para proteger | Cámaras para todo</title>
+  <meta name="description" content="Dashcams, cámaras de seguridad, action cams y más. Asesoría experta, garantía real e instalación profesional en Lima.">
+  <meta name="keywords" content="cámaras, dashcam, seguridad, GPS, action cam, Lima, Perú, TotalCam">
+  <meta name="author" content="TotalCam">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="TotalCam — Ver para proteger">
+  <meta property="og:description" content="Cámaras para tu auto, tu casa y tu aventura. Con asesoría y garantía real.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PE">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%231A1A2E'/><circle cx='50' cy='50' r='25' fill='%230F3460'/><circle cx='50' cy='50' r='12' fill='%2300B4D8' opacity='0.6'/></svg>">
+
+  <style>
+    /* ========================================
+       CSS VARIABLES — Brand Palette
+       ======================================== */
+    :root {
+      --charcoal: #1A1A2E;
+      --deep-blue: #16213E;
+      --accent-blue: #0F3460;
+      --cyan: #00B4D8;
+      --cyan-hover: #0097B2;
+      --gray-text: #5A6677;
+      --gray-light: #F0F4F8;
+      --gray-border: #D0D5DD;
+      --dark: #1C1C1C;
+      --white: #FFFFFF;
+
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 40px rgba(0,0,0,0.12);
+      --shadow-cyan: 0 8px 24px rgba(0,180,216,0.25);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+
+      --container: 1180px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-main);
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ========================================
+       UTILITIES
+       ======================================== */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-label {
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--charcoal);
+    }
+    .section-title--light { color: var(--white); }
+    .text-center { text-align: center; }
+
+    /* Fade-up animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+
+    /* ========================================
+       BUTTONS
+       ======================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-main);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--white);
+      padding: 14px 32px;
+    }
+    .btn-primary:hover {
+      background: var(--deep-blue);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-cyan);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--cyan);
+      border: 2px solid var(--cyan);
+      padding: 12px 28px;
+    }
+    .btn-outline:hover {
+      background: var(--cyan);
+      color: var(--white);
+    }
+    .btn-sm {
+      padding: 10px 24px;
+      font-size: 13px;
+    }
+
+    /* ========================================
+       HEADER
+       ======================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      padding: 20px 0;
+      transition: all var(--transition);
+    }
+    .header.scrolled {
+      background: rgba(26, 26, 46, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .header__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header__logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--accent-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .header__logo-text {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--charcoal);
+      transition: color var(--transition);
+    }
+    .header.scrolled .header__logo-text { color: var(--white); }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .header__nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-text);
+      transition: color var(--transition);
+    }
+    .header__nav a:hover { color: var(--cyan); }
+    .header.scrolled .header__nav a { color: rgba(255,255,255,0.7); }
+    .header.scrolled .header__nav a:hover { color: var(--cyan); }
+
+    .header__menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--charcoal);
+      transition: color var(--transition);
+    }
+    .header.scrolled .header__menu-btn { color: var(--white); }
+
+    /* Mobile menu */
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      background: var(--charcoal);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+    .mobile-nav a { color: var(--white); font-size: 22px; font-weight: 600; }
+    .mobile-nav__close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 32px;
+      cursor: pointer;
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      padding: 140px 0 80px;
+      background: var(--white);
+    }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+    .hero__label {
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero__title {
+      font-size: clamp(40px, 5.5vw, 64px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+    .hero__subtitle {
+      font-size: 18px;
+      color: var(--gray-text);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .hero__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero__stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 44px;
+    }
+    .hero__stat-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+    .hero__stat-label {
+      font-size: 12px;
+      color: var(--gray-text);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* Hero visual — lens */
+    .hero__visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(0,180,216,0.07) 0%, rgba(15,52,96,0.07) 100%);
+      border-radius: 24px;
+      padding: 60px;
+      min-height: 440px;
+    }
+    .hero__lens {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, var(--deep-blue) 0%, var(--accent-blue) 40%, var(--charcoal) 70%, #000 100%);
+      box-shadow: 0 0 0 16px rgba(0,180,216,0.12), 0 0 0 32px rgba(0,180,216,0.04), 0 24px 60px rgba(0,0,0,0.2);
+      position: relative;
+      animation: lensFloat 4s ease-in-out infinite;
+    }
+    .hero__lens::after {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      width: 40%;
+      height: 40%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, rgba(0,180,216,0.55) 0%, rgba(0,180,216,0.1) 60%, transparent 100%);
+    }
+    .hero__lens::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 55%;
+      width: 12%;
+      height: 12%;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      filter: blur(2px);
+    }
+    .hero__badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(26,26,46,0.88);
+      backdrop-filter: blur(8px);
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero__badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #25D366;
+      animation: pulse 2s infinite;
+    }
+    .hero__badge-text {
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    @keyframes lensFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      70% { box-shadow: 0 0 0 8px rgba(37,211,102,0); }
+    }
+
+    /* ========================================
+       CATEGORIES
+       ======================================== */
+    .categories {
+      padding: 80px 0;
+      background: var(--gray-light);
+    }
+    .categories__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .cat-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      height: 300px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    .cat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .cat-card__bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--deep-blue) 0%, var(--accent-blue) 100%);
+    }
+    .cat-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(26,26,46,0.95) 100%);
+    }
+    .cat-card__content {
+      position: relative;
+      z-index: 2;
+      padding: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .cat-card__icon { font-size: 40px; margin-bottom: 12px; }
+    .cat-card__title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .cat-card__desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .cat-card__items {
+      font-size: 11px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      letter-spacing: 0.5px;
+    }
+
+    /* ========================================
+       PRODUCTS
+       ======================================== */
+    .products {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .products__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .prod-card {
+      border: 1px solid var(--gray-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--white);
+      position: relative;
+      transition: all var(--transition);
+    }
+    .prod-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--cyan);
+    }
+    .prod-card__badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--cyan);
+      color: var(--white);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .prod-card__image {
+      height: 180px;
+      background: linear-gradient(135deg, var(--gray-light), #e2e8f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .prod-card__lens {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, var(--deep-blue), var(--accent-blue), var(--charcoal));
+      box-shadow: 0 0 0 8px rgba(0,180,216,0.08);
+      position: relative;
+    }
+    .prod-card__lens::after {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      width: 40%;
+      height: 40%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, rgba(0,180,216,0.4), transparent);
+    }
+    .prod-card__body { padding: 20px; }
+    .prod-card__cat {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .prod-card__name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .prod-card__specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .spec-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 500;
+      background: var(--gray-light);
+      color: var(--gray-text);
+      font-family: var(--font-mono);
+    }
+    .prod-card__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .prod-card__price {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+    .prod-card__link {
+      color: var(--cyan);
+      font-weight: 600;
+      font-size: 13px;
+      transition: color var(--transition);
+    }
+    .prod-card__link:hover { color: var(--accent-blue); }
+
+    /* ========================================
+       WHY TOTALCAM
+       ======================================== */
+    .why {
+      padding: 80px 0;
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 56px;
+    }
+    .why__item { text-align: center; padding: 24px; }
+    .why__icon { font-size: 44px; margin-bottom: 18px; }
+    .why__item-title {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .why__item-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       REVIEWS
+       ======================================== */
+    .reviews {
+      padding: 80px 0;
+      background: var(--gray-light);
+    }
+    .reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      border: 1px solid #e8ecf0;
+      transition: all var(--transition);
+    }
+    .review-card:hover { box-shadow: var(--shadow-md); }
+    .review-card__stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 16px;
+    }
+    .review-card__text {
+      font-size: 15px;
+      color: var(--gray-text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .review-card__author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-card__avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--accent-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .review-card__name { font-weight: 600; font-size: 14px; color: var(--charcoal); }
+    .review-card__label { font-size: 12px; color: var(--gray-text); }
+
+    /* ========================================
+       PROMO
+       ======================================== */
+    .promo { padding: 60px 0; background: var(--white); }
+    .promo__banner {
+      background: linear-gradient(135deg, var(--charcoal) 0%, var(--accent-blue) 60%, var(--deep-blue) 100%);
+      border-radius: var(--radius-xl);
+      padding: 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo__banner::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      right: -15%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(0,180,216,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .promo__inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .promo__label {
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .promo__title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .promo__desc {
+      color: rgba(255,255,255,0.6);
+      font-size: 15px;
+    }
+
+    /* ========================================
+       STEPS
+       ======================================== */
+    .steps {
+      padding: 80px 0;
+      background: var(--gray-light);
+    }
+    .steps__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 56px;
+    }
+    .step { text-align: center; }
+    .step__num {
+      font-family: var(--font-mono);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--cyan);
+      opacity: 0.25;
+      line-height: 1;
+    }
+    .step__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 14px 0 8px;
+    }
+    .step__desc {
+      font-size: 15px;
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+    .steps__cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 64px 0 32px;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer__brand-desc {
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 16px 0 20px;
+      max-width: 300px;
+    }
+    .footer__cta-text {
+      color: var(--cyan);
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .footer__heading {
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+    .footer__link {
+      display: block;
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: color var(--transition);
+    }
+    .footer__link:hover { color: var(--cyan); }
+    .footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 48px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer__copy {
+      color: rgba(255,255,255,0.3);
+      font-size: 13px;
+    }
+
+    /* ========================================
+       WHATSAPP FLOAT
+       ======================================== */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: var(--white);
+      padding: 14px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      font-family: var(--font-main);
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      animation: waPulse 2s infinite;
+      transition: transform var(--transition);
+    }
+    .wa-float:hover { transform: scale(1.05); }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); }
+      70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 900px) {
+      .hero__grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+      }
+      .hero { padding: 120px 0 60px; }
+      .hero__subtitle { margin-left: auto; margin-right: auto; }
+      .hero__actions { justify-content: center; }
+      .hero__stats { justify-content: center; }
+      .hero__visual { min-height: 280px; padding: 40px; }
+      .hero__lens { width: 160px; height: 160px; }
+
+      .categories__grid,
+      .products__grid,
+      .reviews__grid,
+      .why__grid,
+      .steps__grid {
+        grid-template-columns: 1fr;
+      }
+      .cat-card { height: 240px; }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+      .header__nav { display: none; }
+      .header__menu-btn { display: block; }
+      .promo__banner { padding: 32px; }
+      .wa-float span { display: none; }
+      .wa-float { padding: 16px; border-radius: 50%; }
+    }
+
+    @media (min-width: 901px) and (max-width: 1100px) {
+      .products__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 901px) {
+      .header__menu-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ MOBILE NAV ============ -->
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Menú móvil">
+    <button class="mobile-nav__close" id="closeMenu" aria-label="Cerrar menú">&times;</button>
+    <a href="#categorias" onclick="closeMobileMenu()">Categorías</a>
+    <a href="#productos" onclick="closeMobileMenu()">Productos</a>
+    <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
+    <a href="https://wa.me/51999999999?text=Hola%20TotalCam%2C%20quiero%20asesor%C3%ADa" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeMobileMenu()">Habla con un asesor</a>
+  </nav>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header" role="banner">
+    <div class="container header__inner">
+      <a href="#" class="header__logo" aria-label="TotalCam - Inicio">
+        <div class="header__logo-icon">TC</div>
+        <span class="header__logo-text">TotalCam</span>
+      </a>
+      <nav class="header__nav" role="navigation" aria-label="Navegación principal">
+        <a href="#categorias">Categorías</a>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="https://wa.me/51999999999?text=Hola%20TotalCam%2C%20quiero%20asesor%C3%ADa" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Habla con un asesor</a>
+      </nav>
+      <button class="header__menu-btn" id="openMenu" aria-label="Abrir menú">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero__grid">
+        <div class="fade-up">
+          <p class="hero__label">Cámaras para todo</p>
+          <h1 class="hero__title">Ver para<br>proteger.</h1>
+          <p class="hero__subtitle">Dashcams, cámaras de seguridad, action cams y más. Con asesoría experta y garantía real en cada producto.</p>
+          <div class="hero__actions">
+            <a href="https://wa.me/51999999999?text=Hola%20TotalCam%2C%20quiero%20asesor%C3%ADa" target="_blank" rel="noopener" class="btn btn-primary">Encuentra tu cámara ideal</a>
+            <a href="#categorias" class="btn btn-outline">Ver categorías</a>
+          </div>
+          <div class="hero__stats">
+            <div>
+              <div class="hero__stat-value">500+</div>
+              <div class="hero__stat-label">Clientes</div>
+            </div>
+            <div>
+              <div class="hero__stat-value">12</div>
+              <div class="hero__stat-label">Meses garantía</div>
+            </div>
+            <div>
+              <div class="hero__stat-value">100%</div>
+              <div class="hero__stat-label">Asesoría gratis</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__visual fade-up fade-up-delay-2">
+          <div class="hero__lens"></div>
+          <div class="hero__badge">
+            <div class="hero__badge-dot"></div>
+            <span class="hero__badge-text">Asesor disponible</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORIES ============ -->
+  <section class="categories" id="categorias">
+    <div class="container">
+      <div class="text-center fade-up">
+        <p class="section-label">Categorías</p>
+        <h2 class="section-title">Una cámara para cada necesidad</h2>
+      </div>
+      <div class="categories__grid">
+        <div class="cat-card fade-up fade-up-delay-1">
+          <div class="cat-card__bg"></div>
+          <div class="cat-card__overlay"></div>
+          <div class="cat-card__content">
+            <span class="cat-card__icon">🚗</span>
+            <h3 class="cat-card__title">Vehicular</h3>
+            <p class="cat-card__desc">Dashcams y cámaras de retroceso. Tu auto siempre vigilado.</p>
+            <span class="cat-card__items">Dashcams · Cámaras 360° · Monitores</span>
+          </div>
+        </div>
+        <div class="cat-card fade-up fade-up-delay-2">
+          <div class="cat-card__bg"></div>
+          <div class="cat-card__overlay"></div>
+          <div class="cat-card__content">
+            <span class="cat-card__icon">🏠</span>
+            <h3 class="cat-card__title">Hogar y Negocio</h3>
+            <p class="cat-card__desc">Cámaras WiFi, kits DVR y más. Tu casa segura 24/7.</p>
+            <span class="cat-card__items">Cámaras IP · Kits NVR · PTZ</span>
+          </div>
+        </div>
+        <div class="cat-card fade-up fade-up-delay-3">
+          <div class="cat-card__bg"></div>
+          <div class="cat-card__overlay"></div>
+          <div class="cat-card__content">
+            <span class="cat-card__icon">🏍️</span>
+            <h3 class="cat-card__title">Acción y Deporte</h3>
+            <p class="cat-card__desc">Cámaras para casco, moto y deporte. Graba cada momento.</p>
+            <span class="cat-card__items">Action Cams · Casco · Moto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCTS ============ -->
+  <section class="products" id="productos">
+    <div class="container">
+      <div class="text-center fade-up">
+        <p class="section-label">Productos destacados</p>
+        <h2 class="section-title">Lo más pedido por nuestros clientes</h2>
+      </div>
+      <div class="products__grid" id="productsGrid">
+        <!-- Products injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY TOTALCAM ============ -->
+  <section class="why" id="nosotros">
+    <div class="container">
+      <div class="text-center fade-up">
+        <p class="section-label">¿Por qué TotalCam?</p>
+        <h2 class="section-title section-title--light">No solo vendemos cámaras. Te asesoramos.</h2>
+      </div>
+      <div class="why__grid">
+        <div class="why__item fade-up fade-up-delay-1">
+          <div class="why__icon">💬</div>
+          <h3 class="why__item-title">Asesoría experta</h3>
+          <p class="why__item-desc">Te ayudamos a elegir la cámara correcta para tu caso. Sin tecnicismos, sin presión.</p>
+        </div>
+        <div class="why__item fade-up fade-up-delay-2">
+          <div class="why__icon">🛡️</div>
+          <h3 class="why__item-title">Garantía real</h3>
+          <p class="why__item-desc">Cada producto respaldado con garantía verificable. Sin letra pequeña, sin excusas.</p>
+        </div>
+        <div class="why__item fade-up fade-up-delay-3">
+          <div class="why__icon">🔧</div>
+          <h3 class="why__item-title">Instalación profesional</h3>
+          <p class="why__item-desc">Tu cámara funcionando perfecto desde el día uno. Cableado limpio, resultado prolijo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="reviews">
+    <div class="container">
+      <div class="text-center fade-up">
+        <p class="section-label">Testimonios</p>
+        <h2 class="section-title">Más de 500 clientes en Lima ya confían en TotalCam</h2>
+      </div>
+      <div class="reviews__grid" id="reviewsGrid">
+        <!-- Reviews injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROMO ============ -->
+  <section class="promo">
+    <div class="container">
+      <div class="promo__banner fade-up">
+        <div class="promo__inner">
+          <div>
+            <p class="promo__label">Pack del mes</p>
+            <h3 class="promo__title">Dashcam + Cámara WiFi Hogar + Instalación</h3>
+            <p class="promo__desc">Protege tu auto y tu casa con un solo pack. Instalación incluida.</p>
+          </div>
+          <a href="https://wa.me/51999999999?text=Hola%20TotalCam%2C%20quiero%20el%20pack%20del%20mes" target="_blank" rel="noopener" class="btn btn-primary" style="white-space:nowrap;">Quiero el pack</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STEPS ============ -->
+  <section class="steps">
+    <div class="container">
+      <div class="text-center fade-up">
+        <p class="section-label">¿Cómo funciona?</p>
+        <h2 class="section-title">Tu cámara a 3 pasos de distancia</h2>
+      </div>
+      <div class="steps__grid">
+        <div class="step fade-up fade-up-delay-1">
+          <div class="step__num">01</div>
+          <h3 class="step__title">Escríbenos</h3>
+          <p class="step__desc">Cuéntanos qué necesitas por WhatsApp. Sin compromiso.</p>
+        </div>
+        <div class="step fade-up fade-up-delay-2">
+          <div class="step__num">02</div>
+          <h3 class="step__title">Te asesoramos</h3>
+          <p class="step__desc">Te recomendamos la cámara ideal según tu caso y presupuesto.</p>
+        </div>
+        <div class="step fade-up fade-up-delay-3">
+          <div class="step__num">03</div>
+          <h3 class="step__title">Lo instalamos</h3>
+          <p class="step__desc">Recibe tu producto con instalación profesional disponible.</p>
+        </div>
+      </div>
+      <div class="steps__cta fade-up">
+        <a href="https://wa.me/51999999999?text=Hola%20TotalCam%2C%20quiero%20asesor%C3%ADa" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 16px 40px;">Empieza ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="header__logo">
+            <div class="header__logo-icon">TC</div>
+            <span class="header__logo-text" style="color: #fff;">TotalCam</span>
+          </div>
+          <p class="footer__brand-desc">Ver para proteger. Cámaras para tu auto, tu casa y tu aventura. Con asesoría y garantía real.</p>
+          <p class="footer__cta-text">Tu cámara está a un mensaje. Escríbenos hoy.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Categorías</h4>
+          <a href="#categorias" class="footer__link">Vehicular</a>
+          <a href="#categorias" class="footer__link">Hogar y Negocio</a>
+          <a href="#categorias" class="footer__link">Acción y Deporte</a>
+          <a href="#categorias" class="footer__link">Accesorios</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contacto</h4>
+          <span class="footer__link">WhatsApp: +51 999 999 999</span>
+          <span class="footer__link">Lima, Perú</span>
+          <span class="footer__link">Lun - Sáb: 9am - 7pm</span>
+        </div>
+        <div>
+          <h4 class="footer__heading">Síguenos</h4>
+          <a href="#" class="footer__link" aria-label="Instagram">Instagram</a>
+          <a href="#" class="footer__link" aria-label="TikTok">TikTok</a>
+          <a href="#" class="footer__link" aria-label="YouTube">YouTube</a>
+          <a href="#" class="footer__link" aria-label="Facebook">Facebook</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 TotalCam. Todos los derechos reservados.</p>
+        <p class="footer__copy">#TotalCam #CamarasParaTodo #VerParaProteger</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ WHATSAPP FLOAT ============ -->
+  <a href="https://wa.me/51999999999?text=Hola%20TotalCam%2C%20quiero%20asesor%C3%ADa" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Asesoría gratis</span>
+  </a>
+
+  <!-- ============ JAVASCRIPT ============ -->
+  <script>
+    // ===== DATA =====
+    const WHATSAPP = "https://wa.me/51999999999?text=Hola%20TotalCam%2C%20quiero%20asesor%C3%ADa";
+
+    const products = [
+      { name: "Dashcam Pro X200", cat: "Vehicular", price: "S/ 189", specs: ["1080P", "Visión nocturna", "G-Sensor", "Loop"], badge: "Más vendido" },
+      { name: "Cámara WiFi 360°", cat: "Hogar", price: "S/ 149", specs: ["2K", "PTZ", "Audio bidireccional", "App móvil"], badge: "Nuevo" },
+      { name: "ActionCam K5", cat: "Acción", price: "S/ 219", specs: ["4K", "Waterproof", "Estabilizador", "170°"], badge: "Popular" },
+      { name: "Kit DVR 4 Cámaras", cat: "Hogar", price: "S/ 599", specs: ["1080P", "1TB HDD", "Visión nocturna", "Remoto"], badge: "Pack" },
+      { name: "Cámara Retroceso HD", cat: "Vehicular", price: "S/ 89", specs: ["HD", "Gran angular 170°", "Resistente al agua"], badge: "" },
+      { name: "Cam Casco Moto R1", cat: "Acción", price: "S/ 169", specs: ["1080P", "Bluetooth", "Montaje universal", "6hrs"], badge: "Nuevo" },
+    ];
+
+    const reviews = [
+      { name: "Carlos M.", text: "Compré la dashcam y me salvó de un reclamo falso. La asesoría por WhatsApp fue rápida y me ayudaron a elegir el modelo correcto.", rating: 5 },
+      { name: "María L.", text: "Instalé 4 cámaras en mi negocio. Todo el proceso fue profesional, desde la consulta hasta la instalación. Se ve perfecto en mi celular.", rating: 5 },
+      { name: "Diego R.", text: "La action cam para el casco es increíble. Resistente, buena calidad de imagen y me llegó con todo el kit de montaje.", rating: 5 },
+    ];
+
+    // ===== RENDER PRODUCTS =====
+    const productsGrid = document.getElementById("productsGrid");
+    products.forEach((p, i) => {
+      const delay = (i % 3) + 1;
+      const card = document.createElement("div");
+      card.className = `prod-card fade-up fade-up-delay-${delay}`;
+      card.innerHTML = `
+        ${p.badge ? `<div class="prod-card__badge">${p.badge}</div>` : ""}
+        <div class="prod-card__image">
+          <div class="prod-card__lens"><div style="position:absolute;top:30%;left:30%;width:40%;height:40%;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(0,180,216,0.4),transparent)"></div></div>
+        </div>
+        <div class="prod-card__body">
+          <p class="prod-card__cat">${p.cat}</p>
+          <h3 class="prod-card__name">${p.name}</h3>
+          <div class="prod-card__specs">${p.specs.map(s => `<span class="spec-badge">${s}</span>`).join("")}</div>
+          <div class="prod-card__footer">
+            <span class="prod-card__price">${p.price}</span>
+            <a href="${WHATSAPP}" target="_blank" rel="noopener" class="prod-card__link">Consultar →</a>
+          </div>
+        </div>
+      `;
+      productsGrid.appendChild(card);
+    });
+
+    // ===== RENDER REVIEWS =====
+    const starSVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#00B4D8" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>';
+    const reviewsGrid = document.getElementById("reviewsGrid");
+    reviews.forEach((r, i) => {
+      const delay = i + 1;
+      const card = document.createElement("div");
+      card.className = `review-card fade-up fade-up-delay-${delay}`;
+      card.innerHTML = `
+        <div class="review-card__stars">${starSVG.repeat(r.rating)}</div>
+        <p class="review-card__text">"${r.text}"</p>
+        <div class="review-card__author">
+          <div class="review-card__avatar">${r.name[0]}</div>
+          <div>
+            <p class="review-card__name">${r.name}</p>
+            <p class="review-card__label">Cliente verificado</p>
+          </div>
+        </div>
+      `;
+      reviewsGrid.appendChild(card);
+    });
+
+    // ===== HEADER SCROLL =====
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 60);
+    });
+
+    // ===== MOBILE MENU =====
+    const mobileNav = document.getElementById("mobileNav");
+    document.getElementById("openMenu").addEventListener("click", () => mobileNav.classList.add("open"));
+    document.getElementById("closeMenu").addEventListener("click", () => mobileNav.classList.remove("open"));
+    function closeMobileMenu() { mobileNav.classList.remove("open"); }
+
+    // ===== INTERSECTION OBSERVER — Fade Up =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
